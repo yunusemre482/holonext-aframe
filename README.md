@@ -1,2 +1,1 @@
-# holonext-aframe
-Created with CodeSandbox
+# holonext-ar-maker

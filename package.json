@@ -1,32 +1,29 @@
 {
-  "name": "learn-react-ar-js",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "main": "src/index.js",
-  "dependencies": {
-    "aframe": "1.3.0",
-    "aframe-animation-component": "5.1.2",
-    "aframe-react": "4.4.0",
-    "react": "17.0.2",
-    "react-aframe-ar": "1.18.0",
-    "react-dom": "17.0.2",
-    "react-scripts": "4.0.0"
-  },
-  "devDependencies": {
-    "@babel/runtime": "7.13.8",
-    "typescript": "4.1.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+	"name": "startup",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": " npm run build  --prefix client",
+		"install-packages": "npm run install-packages --prefix client && npm run install-packages --prefix server",
+		"client": "npm run start --prefix client",
+		"server": "npm run start --prefix server",
+		"dev": "concurrently \"npm run client\" \"npm run server\"",
+		"start": "node server/server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@belivvr/aframe-react": "^0.4.2",
+		"aframe": "^1.4.1",
+		"concurrently": "^7.6.0",
+		"ngrok": "^4.3.3",
+		"swagger-ui-express": "^4.6.0"
+	},
+	"devDependencies": {
+		"ts-patch": "^2.1.0",
+		"typescript-transform-paths": "^3.4.6",
+		"undefined": "^0.1.0"
+	}
 }
