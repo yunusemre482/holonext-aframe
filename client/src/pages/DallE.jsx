@@ -34,7 +34,7 @@ const DallE = () => {
 	const handleSubmit = async (question) => {
 		setIsLoading(true);
 		await axios
-			.post('https://holonext-aframe.onrender.com/api/v1/dall-e', {
+			.post('/api/v1/dall-e', {
 				message: question,
 				userId: 1,
 			})
@@ -59,7 +59,7 @@ const DallE = () => {
 	return (
 		<div className='w-full h-full flex  flex-col lg:flex-row overflow-auto'>
 			<Scene images={apiAnswer} />
-			<div className='z-10 flex flex-col items-center justify-center bg-[rgba(102,138,255,0.5)]  mx-auto gap-4 w-[80%] lg:w-[clamp(200px,50%,800px)] p-5'>
+			<div className='z-10 flex flex-col items-center justify-center bg-[rgba(102,138,255,0.5)]  mx-auto gap-4 w-full lg:w-[clamp(200px,50%,800px)] p-5'>
 				<ul className=' w-[90%] flex items-center lg:py-10  gap-2 flex flex-col hidden lg:flex '>
 					<span className='text-lg mb-2 w-full'>Example Commands:</span>
 
@@ -74,14 +74,14 @@ const DallE = () => {
 					))}
 				</ul>
 				<div className='flex flex-col items-center lg:w-full'>
-					<div className='flex items-center relative flex-col  w-[85%] lg:w-full '>
-						<span className='text-lg mb-2  w-[90%]'>Speak into the microphone:</span>
+					<div className='flex items-center relative flex-col  w-full lg:w-full '>
+						<span className='text-lg mb-2 w-full '>Speak into the microphone:</span>
 						<textarea
 							defaultValue={transcript}
 							onChange={(e) => {}}
 							disabled
 							id='speech-input'
-							className=' w-[90%] h-20 lg:h-64 rounded-lg border-gray-400 border-2 px-4 py-2 mb-4 disabled:bg-white'
+							className='w-full  h-20 lg:h-64 rounded-lg border-gray-400 border-2 px-4 py-2 mb-4 disabled:bg-white'
 						></textarea>
 						<button
 							className='absolute top-12 right-8   bg-teal-600 p-2 rounded-md '
@@ -91,11 +91,11 @@ const DallE = () => {
 						</button>
 					</div>
 
-					<div className='flex  justify-end items-center  gap-5 w-[90%] lg:w-full flex-row px-[2rem]'>
+					<div className='flex  justify-end items-center  gap-5 w-full lg:w-full flex-row px-[2rem]'>
 						<button
 							onClick={handleListen}
 							id='start-recognition'
-							className='bg-blue-700 hover:bg-blue-800 text-white font-bold p-2 px-6  rounded flex flex-row items-center gap-4'
+							className='flex-1 bg-blue-700 hover:bg-blue-800 text-white font-bold p-2 px-6  rounded flex flex-row items-center gap-4'
 						>
 							{listening ? (
 								<MicrophoneOff size={20} strokeWidth={2} color={'#f5f5f5'} />
@@ -108,7 +108,7 @@ const DallE = () => {
 						<button
 							onClick={() => handleSubmit(finalTranscript)}
 							id='start-recognition'
-							className=' bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded '
+							className='flex-1 bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded '
 						>
 							Submit Transcript
 						</button>
