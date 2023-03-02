@@ -91,7 +91,7 @@ const DallE = () => {
 						</button>
 					</div>
 
-					<div className='flex  justify-end items-center  gap-5 w-full lg:w-full flex-row lg:px-[2rem]'>
+					<div className='flex  justify-end items-center  gap-5 w-full lg:w-full flex-row'>
 						<button
 							onClick={handleListen}
 							id='start-recognition'
