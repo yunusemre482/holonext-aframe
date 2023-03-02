@@ -95,7 +95,7 @@ const DallE = () => {
 						<button
 							onClick={handleListen}
 							id='start-recognition'
-							className='flex-1 bg-blue-700 hover:bg-blue-800 text-white font-bold p-2 px-6  rounded flex flex-row items-center gap-4'
+							className='flex-1 bg-blue-700 hover:bg-blue-800 text-white font-bold p-2 px-6  rounded flex flex-row items-center justify-center cursor-pointer gap-4'
 						>
 							{listening ? (
 								<MicrophoneOff size={20} strokeWidth={2} color={'#f5f5f5'} />
@@ -108,7 +108,7 @@ const DallE = () => {
 						<button
 							onClick={() => handleSubmit(finalTranscript)}
 							id='start-recognition'
-							className='flex-1 bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded '
+							className='flex-1 bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded cursor-pointer'
 						>
 							Submit Transcript
 						</button>
