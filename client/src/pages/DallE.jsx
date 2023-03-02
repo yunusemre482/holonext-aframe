@@ -34,7 +34,7 @@ const DallE = () => {
 	const handleSubmit = async (question) => {
 		setIsLoading(true);
 		await axios
-			.post('/api/v1/dall-e', {
+			.post('https://holonext-aframe.onrender.com/api/v1/dall-e', {
 				message: question,
 				userId: 1,
 			})
