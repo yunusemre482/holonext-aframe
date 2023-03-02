@@ -9,7 +9,6 @@ import axios from 'axios';
 
 dotenv.config();
 
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -57,27 +56,33 @@ let conversations = [];
 app.post('/api/v1/dall-e', async (req, res) => {
 	const { message, userId } = req.body;
 
-	const apiResult = await openai
-		.createImage({
-			prompt: message,
-			n: 2,
-			size: '512x512',
-		})
-		.then((response) => {
-			return response.data.data;
+	try {
+		const apiResult = await openai
+			.createImage({
+				prompt: message,
+				n: 2,
+				size: '512x512',
+			})
+			.then((response) => {
+				return response.data.data;
+			});
+
+		// get base64 encoded images from urls in apiResult
+		const images = await Promise.all(
+			apiResult.map(async (img) => {
+				const base64 = await getBase64(img.url);
+				return `data:image/png;base64,${base64}`;
+			})
+		);
+
+		res.status(200).json({
+			images,
 		});
-
-	// get base64 encoded images from urls in apiResult
-	const images = await Promise.all(
-		apiResult.map(async (img) => {
-			const base64 = await getBase64(img.url);
-			return `data:image/png;base64,${base64}`;
-		})
-	);
-
-	res.status(200).json({
-		images,
-	});
+	} catch (e) {
+		res.status(400).json({
+			error: e,
+		});
+	}
 });
 
 const port = process.env.PORT || 5000;
@@ -94,7 +99,6 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
-
 
 async function getBase64(url) {
 	return await axios
