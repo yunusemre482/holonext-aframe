@@ -60,7 +60,7 @@ const DallE = () => {
 		<div className='w-full h-full flex  flex-col lg:flex-row overflow-auto'>
 			<Scene images={apiAnswer} />
 			<div className='z-10 flex flex-col items-center justify-center bg-[rgba(102,138,255,0.5)]  mx-auto gap-4 w-full lg:w-[clamp(200px,50%,800px)] p-5'>
-				<ul className=' w-[90%] flex items-center lg:py-10  gap-2 flex flex-col hidden lg:flex '>
+				<ul className=' w-full flex items-center lg:py-10  gap-2 flex flex-col hidden lg:flex '>
 					<span className='text-lg mb-2 w-full'>Example Commands:</span>
 
 					{defaultCommands.map((command, index) => (
