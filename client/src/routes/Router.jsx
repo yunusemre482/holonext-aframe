@@ -7,8 +7,8 @@ const LocationBasedAR = lazy(() => import('../pages/LocationBased'));
 const AppStack = ({}) => {
 	return (
 		<Routes>
-			<Route path='chat' element={<AR />} />
-			<Route path='location-based-chat' element={<LocationBasedAR />} />{' '}
+			<Route path='/chat' element={<AR />} />
+			<Route path='/location-based-chat' element={<LocationBasedAR />} />{' '}
 			<Route path='*' element={<div> no match</div>} />
 		</Routes>
 	);
