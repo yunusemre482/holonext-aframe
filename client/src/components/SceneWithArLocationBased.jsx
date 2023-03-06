@@ -48,15 +48,16 @@ const SceneWithAR = ({ images }) => {
 			renderer='antialias: true; alpha: true'
 		>
 			<a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
+
 			<a-plane
-				src={images[0]}
 				position='0 0 0'
 				rotation='0 30 0'
 				width='20'
 				height='20'
 				material='side: double'
+				src={images[0]}
 				gps-new-entity-place={`latitude: ${currentPosition.lat}; longitude: ${currentPosition.lng}`}
-			/>
+			></a-plane>
 		</a-scene>
 	);
 };
