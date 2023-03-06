@@ -52,19 +52,11 @@ const SceneWithAR = ({ images }) => {
 				src={images[0]}
 				position='0 0 0'
 				rotation='0 30 0'
-				width='6'
-				height='6'
-				shadow
+				width='20'
+				height='20'
 				material='side: double'
 				gps-new-entity-place={`latitude: ${currentPosition.lat}; longitude: ${currentPosition.lng}`}
 			/>
-
-			<a-entity
-				material='color: red'
-				geometry='primitive: box'
-				gps-new-entity-place='latitude: 39.87125592696574; longitude: 32.6591732488896'
-				scale='10 10 10'
-			></a-entity>
 		</a-scene>
 	);
 };
