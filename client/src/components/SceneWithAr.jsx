@@ -8,6 +8,10 @@ const SceneWithAR = ({ images }) => {
 			renderer='antialias: true;physicallyCorrectLights: true;logarithmicDepthBuffer:true;'
 		>
 			<a-entity orbit-controls='target:0 0 -14; minDistance: 0.5; maxDistance: 180;'></a-entity>
+			<a-entity light='type: ambient; color: #fff'></a-entity>
+			<a-entity light='type:point;color:#fff'></a-entity>
+			<a-light type='ambient' color='#fff'></a-light>
+			<a-light type='point' color='#fff' position='0 5 0'></a-light>
 
 			<a-plane
 				src={images[0]}
